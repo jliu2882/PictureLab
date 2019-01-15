@@ -41,7 +41,7 @@ public class PictureTester
     underwater.explore();
   }
   /** Method to test mirrorVertical */
-  public static void testmirrorVertical()
+  public static void testMirrorVertical()
   {
     Picture caterpillar = new Picture("caterpillar.jpg");
     caterpillar.explore();
@@ -49,28 +49,28 @@ public class PictureTester
     caterpillar.explore();
   }
 
-  public static void testmirrorVerticalRightToLeft()
+  public static void testMirrorVerticalRightToLeft()
   {
     Picture caterpillar = new Picture("caterpillar.jpg");
     caterpillar.explore();
     caterpillar.mirrorVerticalRightToLeft();
     caterpillar.explore();
   }
-  public static void testmirrorHorizontal()
+  public static void testMirrorHorizontal()
   {
     Picture caterpillar = new Picture("caterpillar.jpg");
     caterpillar.explore();
     caterpillar.mirrorHorizontal();
     caterpillar.explore();
   }
-  public static void testmirrorHorizontalBotToTop()
+  public static void testMirrorHorizontalBotToTop()
   {
     Picture caterpillar = new Picture("caterpillar.jpg");
     caterpillar.explore();
     caterpillar.mirrorHorizontalBotToTop();
     caterpillar.explore();
   }
-  public static void testmirrorDiagonal()
+  public static void testMirrorDiagonal()
   {
     Picture caterpillar = new Picture("caterpillar.jpg");
     caterpillar.explore();
@@ -110,18 +110,20 @@ public class PictureTester
     // uncomment a call here to run a test
     // and comment out the ones you don't want
     // to run
-    testZeroBlue();
-    testKeepOnlyBlue();
+    //testZeroBlue();
+    //testKeepOnlyBlue();
     //testKeepOnlyRed();
     //testKeepOnlyGreen();
-    testNegate();
-    testGrayscale();
-    testFixUnderwater();
+    //testNegate();
+    //testGrayscale();
+    //testFixUnderwater();
     //testMirrorVertical();
     //testMirrorTemple();
+    testMirrorHorizontal();
+    testMirrorHorizontalBotToTop();
     //testMirrorArms();
     //testMirrorGull();
-    //testMirrorDiagonal();
+    testMirrorDiagonal();
     //testCollage();
     //testCopy();
     //testEdgeDetection();
