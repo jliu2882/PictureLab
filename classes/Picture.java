@@ -84,7 +84,7 @@ public class Picture extends SimplePicture
     return output;
     
   }
-  
+
   /** Method to set the blue to 0 */
   public void zeroBlue()
   {
@@ -94,6 +94,74 @@ public class Picture extends SimplePicture
       for (Pixel pixelObj : rowArray)
       {
         pixelObj.setBlue(0);
+      }
+    }
+  }
+  /** Method to set the red to 0 */
+  public void zeroRed()
+  {
+    Pixel[][] pixels = this.getPixels2D();
+    for (Pixel[] rowArray : pixels)
+    {
+      for (Pixel pixelObj : rowArray)
+      {
+        pixelObj.setRed(0);
+      }
+    }
+  }
+  /** Method to set red and green to 0 */
+  public void keepBlue(){
+    Pixel[][] pixels = this.getPixels2D();
+    for(Pixel[] rowArray : pixels){
+      for(Pixel pixelObj : rowArray){
+        pixelObj.setRed(0);
+        pixelObj.setGreen(0);
+      }
+    }
+  }
+  /** Method to set blue and green to 0 */
+  public void keepRed(){
+    Pixel[][] pixels = this.getPixels2D();
+    for(Pixel[] rowArray : pixels){
+      for(Pixel pixelObj : rowArray){
+        pixelObj.setBlue(0);
+        pixelObj.setGreen(0);
+      }
+    }
+  }
+  /** Method to set red green and blue to their inverse */
+  public void negate(){
+    Pixel[][] pixels = this.getPixels2D();
+    for(Pixel[] rowArray : pixels){
+      for(Pixel pixelObj : rowArray){
+        pixelObj.setRed(255-pixelObj.getRed());
+        pixelObj.setGreen(255-pixelObj.getGreen());
+        pixelObj.setBlue(255-pixelObj.getBlue());
+      }
+    }
+  }
+  /** Method to set picture to gray with a cool formula :) */
+  public void grayscale(){
+    Pixel[][] pixels = this.getPixels2D();
+    int NumberOfShades = 16;
+    for(Pixel[] rowArray : pixels){
+      for(Pixel pixelObj : rowArray){
+        int ConversionFactor = 255 / (NumberOfShades - 1);
+        int AverageValue = (pixelObj.getRed() + pixelObj.getGreen() + pixelObj.getBlue())/3;
+        int gray = (int) ((AverageValue / ConversionFactor) + 0.5) * ConversionFactor;
+        pixelObj.setRed(gray);
+        pixelObj.setGreen(gray);
+        pixelObj.setBlue(gray);
+      }
+    }
+  }
+  /** Method to fix the picture if it is 'underwater' */
+  public void fixUnderwater(){
+    Pixel[][] pixels = this.getPixels2D();
+    for(Pixel[] rowArray : pixels){
+      for(Pixel pixelObj : rowArray){
+        pixelObj.setBlue(pixelObj.getRed());
+        pixelObj.setGreen(pixelObj.getRed());
       }
     }
   }
