@@ -1,3 +1,5 @@
+import sun.util.xml.PlatformXmlPropertiesProvider;
+
 import java.awt.*;
 import java.awt.font.*;
 import java.awt.geom.*;
@@ -275,8 +277,36 @@ public class Picture extends SimplePicture
         rightPixel = pixels[row]                       
                          [mirrorPoint - col + mirrorPoint];
         rightPixel.setColor(leftPixel.getColor());
+        count++;
       }
     }
+    System.out.println(count);
+  }
+  public void mirrorArms(){
+      int mirrorPoint = 192;
+      Pixel topPixel = null;
+      Pixel botPixel = null;
+      Pixel[][] pixels = this.getPixels2D();
+      for(int row = 160; row < mirrorPoint; row++){
+          for(int col = 100; col < 300; col++){
+              topPixel = pixels[row][col];
+              botPixel = pixels[mirrorPoint-row+mirrorPoint][col];
+              botPixel.setColor(topPixel.getColor());
+          }
+      }
+  }
+  public void mirrorGull(){
+      int mirrorPoint = 235;
+      Pixel leftPixel = null;
+      Pixel rightPixel = null;
+      Pixel[][] pixels = this.getPixels2D();
+      for(int row = 230; row < 330; row++){
+          for(int col = 350; col > mirrorPoint; col--){
+              leftPixel = pixels[row][col];
+              rightPixel = pixels[row][mirrorPoint-col+mirrorPoint];
+              rightPixel.setColor(leftPixel.getColor());
+          }
+      }
   }
   
   /** copy from the passed fromPic to the
