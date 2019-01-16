@@ -223,12 +223,13 @@ public class Picture extends SimplePicture
         Pixel topPixel = null;
         Pixel bottomPixel = null;
         int height = pixels.length;
-        for (int row = height/2 -1; row >= 0; row--)
+        int width = pixels[0].length;
+        for (int row = 0; row < height/2; row++)
         {
-            for (int col = pixels[0].length-1; col >= 0; col--)
+            for (int col = 0; col < width; col++)
             {
-                bottomPixel = pixels[row][col];
-                topPixel = pixels[height - 1 - row][col];
+                bottomPixel = pixels[height - 1 - row][col];
+                topPixel = pixels[row][col];
                 topPixel.setColor(bottomPixel.getColor());
             }
         }
