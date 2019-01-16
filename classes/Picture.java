@@ -263,7 +263,7 @@ public class Picture extends SimplePicture
     int count = 0;
     Pixel[][] pixels = this.getPixels2D();
 
-    // loop through the rows
+    // loop through therows
     for (int row = 27; row < 97; row++)
     {
       // loop from 13 to just before the mirror point
